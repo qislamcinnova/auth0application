@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Edit Profile";
+}
+@model Auth0.ManagementApi.Models.User
+
+<div class="row">
+    <div class="col-md-12">
+        <h1 style="display: flex; justify-content: center">@ViewData["Title"]</h1>
+        <br />
+        <hr />
+        <form asp-controller="Account" asp-action="SubmitEditProfile" method="post">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input name="Email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="@Model.Email">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputFullname">Fullname</label>
+                <input name="FullName" class="form-control" id="exampleInputFullname" placeholder="Fullname" value="@Model.FullName">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputNickname">NickName</label>
+                <input name="NickName" class="form-control" id="exampleInputNickname" placeholder="Nickname" value="@Model.NickName">
+            </div>
+            <button type="submit" class="btn btn-primary mt-4">Submit</button>
+        </form>
+    </div>
+</div>

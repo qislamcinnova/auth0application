@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Application Users";
+}
+
+@model Auth0.ManagementApi.Paging.IPagedList<Auth0.ManagementApi.Models.User>
+
+<div>
+    <h1 style="display: flex; justify-content: center">@ViewData["Title"]</h1>
+    <br />
+    <hr/>
+
+    @foreach (var user in @Model)
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="@user.Picture"
+                             alt="" class="img-rounded img-responsive" />
+                    </div>
+                    <div class="col-md-4">
+                        <h3>@user.FullName</h3>
+                        <p>
+                            <b>User Id:</b>
+                            @user.UserId
+                        </p><p>
+                            <b>Email:</b> <i class="glyphicon glyphicon-envelope"></i> @user.Email
+                        </p>
+                        <div>
+                            <b>Nickname:</b> @user.NickName
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+    }
+</div>

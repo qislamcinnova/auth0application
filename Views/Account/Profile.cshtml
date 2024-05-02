@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Profile";
+}
+@model Auth0.ManagementApi.Models.User
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <h1 style="display: flex; justify-content: center">@ViewData["Title"]</h1>
+            <br />
+            <hr />
+            <div class="col-md-2">
+                <img src="@Model.Picture"
+                     alt="" class="img-rounded img-responsive" />
+            </div>
+            <div class="col-md-4">
+                <h3>@Model.FullName</h3>
+                <p>
+                    <i class="glyphicon glyphicon-envelope"></i> @Model.Email
+                </p>
+                <div>
+                    Nickname: @Model.NickName
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <a class="nav-link" asp-area="" asp-controller="Account" asp-action="EditProfile">Edit Profile</a>
+    </div>
+</div>
