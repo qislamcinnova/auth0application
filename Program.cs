@@ -11,11 +11,11 @@ builder.Services.AddAuth0WebAppAuthentication(options =>
     options.Domain = builder.Configuration["Auth0:Domain"];
     options.ClientId = builder.Configuration["Auth0:ClientId"];
 
-    options.OpenIdConnectEvents = new OpenIdConnectEvents
-    {
-        OnAccessDenied = (ctx)
-            => CustomAuthEventHandler.OnAccessDenied(ctx, "/account/access-denied", "/account/email-verification")
-    };
+    //options.OpenIdConnectEvents = new OpenIdConnectEvents
+    //{
+    //    OnAccessDenied = (ctx)
+    //        => CustomAuthEventHandler.OnAccessDenied(ctx, "/account/access-denied", "/account/email-verification")
+    //};
 });
 
 builder.Services.AddAuth0AuthenticationClient(config =>
