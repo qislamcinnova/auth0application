@@ -1,8 +1,51 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+﻿@page
+<div class="container">
+    <div class="row justify-content-center text-center mt-5"><img src="/img/default-logo.png" style="max-width: 500px" /></div>
 </div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-5" style="padding-left: 15px; padding-right: 15px; margin: 25px; margin-bottom: 50px; width: 35%">
+            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                <div class="card-header justify-content-center text-center"><h3 class="my-4" style="font-weight: 300">Login</h3></div>
+                <div class="card-body">
+                    <div class="text-center">
+                        <span>To login to ICOMM's Client Portal with your <br /> organization's account use the button below</span>
+                        <a class="nav-link text-dark " href="/Account/Login" style="display: flex; justify-content: center">
+                            <button type="button" class="form-control" style=" width: 42%; border-color: darkgray ">
+                                Login with Auth0
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .icomm-form {
+        margin-top: 30px;
+    }
+
+    .hide {
+        display: none;
+    }
+</style>
+
+
+<script>
+    $(document).ready(function () {
+        $("#emailHelp").addClass("hide");
+        $("form").on("submit", function (e) {
+            if ($("#emailAddress").val() === "") {
+                e.preventDefault();
+                $("#emailHelp").removeClass("hide");
+            }
+            else {
+                if (!$("#emailHelp").hasClass("hide")) {
+                    $("#emailHelp").addClass("hide");
+                }
+            }
+        });
+    });
+</script>
